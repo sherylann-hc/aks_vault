@@ -17,7 +17,7 @@ Once the apply is compelete connect to your Kubenetes envrioment via your cloud 
 Now
 
 1. clone this repo into your shell https://github.com/dawright22/app_stack.git
-2. change into this repo and run ./full_stack_deploy.sh
+2. change into this repo and run ./full_stack_deploy.sh </br>
 
 #### Via Terraform Cloud (TFC)
 If you are new to TFC, complete this tutorial: https://learn.hashicorp.com/collections/terraform/cloud-get-started
@@ -27,7 +27,7 @@ If you are new to TFC, complete this tutorial: https://learn.hashicorp.com/colle
 3. Create a new Workspace and select the "Version control workflow" 
 4. Choose the repo you forked
 5. Update Variables
-6. Queue and Run the plan
+6. Queue and Run the plan </br>
 
 **Retrieve and update the Variables in TFC**
 Review variables.tf
