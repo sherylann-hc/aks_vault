@@ -24,15 +24,15 @@ resource "helm_release" "vault" {
 
   values = [ "${file("templates/vault.yaml")}"] 
 
-set {
-    name = "server.image.repository"
-    value = "hashicorp/vault-enterprise"
-  }
+# set {
+#     name = "server.image.repository"
+#     value = "hashicorp/vault-enterprise"
+#   }
 
-set {
-    name = "server.image.tag"
-    value = "latest"
-  }
+# set {
+#     name = "server.image.tag"
+#     value = "latest"
+#   }
 
   set {
     name = "server.standalone.enabled"
