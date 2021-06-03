@@ -67,6 +67,7 @@ You will need to login in using the ROOT TOKEN from the init.json file located i
 
 #### Via Terraform Cloud
 Get the kubernetes_cluster_name and resource_group_name values
+
 Steps to retrieve external IP:
 1. Using Azure CLI, login with created Service Principal account
 2. Run ```az aks get-credentials --resource-group <resource_group_name> --name <kubernetes_cluster_name>```
