@@ -72,7 +72,7 @@ Steps to retrieve external IP:
 1. Using Azure CLI, login with created Service Principal account
 2. Run ```az aks get-credentials --resource-group <resource_group_name> --name <kubernetes_cluster_name>```
 3. Run ```kubectl get services```
-4. Connect to the Vault UI and see the secrets engines enabled using http://<EXTERNAL-IP:8200>
+4. Connect to the Vault UI and see the secrets engines enabled using http://<<EXTERNAL-IP:8200>>
 
 it should look like this:
 
