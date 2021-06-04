@@ -27,7 +27,8 @@ If you are new to TFC, complete this tutorial: https://learn.hashicorp.com/colle
 3. Create a new Workspace and select the "Version control workflow" 
 4. Choose the repo you forked
 5. Update Variables
-6. Queue and Run the plan </br>
+6. Queue and Run the plan
+7. Once the apply is compelete connect to your Kubenetes envrioment via your cloud shell and verify the pods are up using kubectl get pods </br>
 
 **Retrieve and update the Variables in TFC**
 Review variables.tf
@@ -55,6 +56,16 @@ ARM_CLIENT_SECRET : "<password>"
 ARM_CLIENT_ID : "<appId>"
 ```
 
+**Connecting to Cloud K8s Environment**
+
+Navigate to Kubernetes services then select your newly created cluster and select the connect button
+![](/images/az-k8s-connect.png)
+
+1. Run `kubectl get pods` and see that Terraform has used helm to install Vault in the cluster
+2. Clone this repo into your shell `git clone https://github.com/dawright22/app_stack.git`
+3. cd into the app_stack directory and run `./full_stack_deploy.sh` </br>
+4. Running `kubectl get svc` will show the ip address to connect to for both the demo application and vault UI
+
 ### What you get!
 A standalone vault instance that can be either OSS (default) or Enterprise to demonstrate dynamic user credentials and trasit data encryption as a service 
 
@@ -66,13 +77,10 @@ You can connect to the Vault UI and see the secrets engines enabled using http:/
 You will need to login in using the ROOT TOKEN from the init.json file located in app_stack/vault/init.json to authenticate
 
 #### Via Terraform Cloud
-Get the kubernetes_cluster_name and resource_group_name values
 
 Steps to retrieve external IP:
-1. Using Azure CLI, login with created Service Principal account
-2. Run ```az aks get-credentials --resource-group <resource_group_name> --name <kubernetes_cluster_name>```
-3. Run ```kubectl get services```
-4. Connect to the Vault UI and see the secrets engines enabled using http://<<EXTERNAL-IP:8200>>
+1. Run `kubectl get svc` in the Azure Cloud Shell
+2. Connect to the Vault UI and see the secrets engines enabled using http://<<EXTERNAL-IP:8200>>
 
 it should look like this:
 
@@ -80,7 +88,7 @@ it should look like this:
 
 ### Transit-app
 
-Execute kubectl get svc transit-app to see the ip address to connect too
+Execute `kubectl get svc transit-app` to see the ip address to connect too
 
 You can connect to the app UI and add or change record using http://<EXTERNAL_IP:5000>
 
@@ -92,8 +100,9 @@ You can connect to the app UI and add or change record using http://<EXTERNAL_IP
 #### Locally
 in the app_stack repo run the ./cleanup.sh
 
-#### Via Terraform Cloud
-Settings > Destruction and Deletion > Queue destroy plan
+#### Via TFC
+1. Using the Azure Cloud Shell, in the app_stack repo run the ./cleanup.sh
+2. Using TFC, Settings > Destruction and Deletion > Queue destroy plan
 
 
 
