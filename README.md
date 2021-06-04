@@ -58,7 +58,8 @@ ARM_CLIENT_ID : "<appId>"
 
 **Connecting to Cloud K8s Environment**
 
-Navigate to Kubernetes services then select your newly created cluster and select the connect button
+Navigate to Kubernetes services then select your newly created cluster and select the connect button and connect via the Cloud Shell</br>
+Note: If you do not know what is your cluster name, refer to TFC's workspace output
 ![](/images/az-k8s-connect.png)
 
 1. Run `kubectl get pods` and see that Terraform has used helm to install Vault in the cluster
