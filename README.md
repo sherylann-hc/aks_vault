@@ -63,6 +63,7 @@ Note: If you do not know what is your cluster name, refer to TFC's workspace out
 ![](/images/az-k8s-connect.png)
 
 1. Run `kubectl get pods` and see that Terraform has used helm to install Vault in the cluster
+![](/images/get-pods.png)
 2. Clone this repo into your shell `git clone https://github.com/dawright22/app_stack.git`
 3. cd into the app_stack directory and run `./full_stack_deploy.sh` </br>
 4. Running `kubectl get svc` will show the ip address to connect to for both the demo application and vault UI
